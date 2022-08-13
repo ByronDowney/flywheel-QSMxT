@@ -1,0 +1,50 @@
+{
+	"name": "qsmxt-flywheel-gear-test",
+	"label": "QSMxT Flywheel Gear Test",
+	"description": "A test of QSMxT as a Flywheel gear.",
+	"author": "Byron Downey <byronelliottdowney@gmail.com>",
+	"maintainer": "Byron Downey <byronelliottdowney@gmail.com>",
+	"url": "",
+	"source": "https://github.com/ByronDowney/flywheel-QSMxT",
+	"license": "Apache-2.0",
+	"flywheel": "0",
+	"version":  "0.1",
+	"environment": {
+
+	},
+	"command": "python3 run.py",
+
+	"config": {
+		"TGV QSM Iterations": {
+			"default": 1,
+			"type": "integer",
+			"description": "(Integer) Number of TGV QSM iterations for the analysis to perform"
+		},
+		"string": {
+			"default": "Example",
+			"type": "string",
+			"description": "Any string."
+		}
+	},
+
+	"inputs": {
+		"magnitude": {
+			"base": "file",
+			"type": {
+				"enum": [
+					"dicom"
+				]
+			},
+			"description": "Magnitude input in DICOM format."
+		},
+		"phase": {
+			"base": "file",
+			"type": {
+				"enum": [
+					"dicom"
+				]
+			},
+			"description": "Phase input in DICOM format."
+		}
+}
+}
