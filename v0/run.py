@@ -15,18 +15,22 @@ import json
 with open('config.json') as config:
     config = json.load(config)
 
-qsm_iterations = int(config["config"]["TGV QSM Iterations"])
+qsm_iterations = int(config["config"]["TGV_QSM_Iterations"])
+with ZipFile('/flywheel/v0/input/magnitude/mag.zip', 'r') as zipObj:
+    zipObj.extractall('/flywheel/v0/input/magnitude/')
 
-# below two lines shouldn't be needed as the dicomsort seems to automatically separate the two inputs somehow
-# magnitude_dir = "input/magnitude"
-# phase_dir = "input/phase"
+with ZipFile('/flywheel/v0/input/phase/phs.zip', 'r') as zipObj:
+    zipObj.extractall('/flywheel/v0/input/phase/')
 
+print("Environment variables:")
+result = subprocess.run(["printenv"], stdout=subprocess.PIPE)
+print("Number of QSM iterations:  ", qsm_iterations)
 
 print("Sorting DICOM data...")
 call([
     "python3",
     "/opt/QSMxT/run_0_dicomSort.py",
-    "/root/",
+    "/flywheel/v0/input",  # input - this should be in the Flywheel input folder!
     "/00_dicom"
     ])
 
