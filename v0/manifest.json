@@ -10,20 +10,21 @@
 	"flywheel": "0",
 	"version":  "0.1",
 	"environment": {
-
+		"PATH": "/opt/miniconda-latest/bin:/opt/dcm2niix-latest/bin:/opt/ants-2.3.4:/opt/fsl-6.0.4/bin:/miniconda2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/julia-1.5.3/bin:/opt/bru2:/opt/FastSurfer"
 	},
 	"command": "python3 run.py",
+	"custom": {
+		"gear-builder": {
+			"category": "analysis",
+			"image": "byrondowney/flywheel-qsmxt:latest"
+		}
+	},
 
 	"config": {
-		"TGV QSM Iterations": {
+		"TGV_QSM_Iterations": {
 			"default": 1,
 			"type": "integer",
 			"description": "(Integer) Number of TGV QSM iterations for the analysis to perform"
-		},
-		"string": {
-			"default": "Example",
-			"type": "string",
-			"description": "Any string."
 		}
 	},
 
